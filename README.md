@@ -1,1 +1,2 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# spoofcord
+best discord message spoofer in town frfr
