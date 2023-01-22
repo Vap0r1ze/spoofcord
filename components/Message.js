@@ -5,7 +5,7 @@ export default function Message({ user, data }) {
     </div>
     <div style={styles.message}>
       <div style={styles.header}>
-        <span style={styles.username}>{data.nickname || user.username}</span>
+        <span style={styles.username}>{user.username}</span> <span style={styles.time}>Today at {data.time}</span>
       </div>
       <div style={styles.content}>{data.content || ""}</div>
     </div>
@@ -13,6 +13,11 @@ export default function Message({ user, data }) {
 }
 
 const styles = {
+  time: {
+    marginLeft: '7%',
+    fontSize: '12px',
+    color: '#a3a6aa'
+  },
   messageWrap: {
     display: 'flex',
     height: '100%',
@@ -37,6 +42,7 @@ const styles = {
   },
   header: {
     display: 'flex',
+    alignItems: 'center'
   },
   username: {
     color: '#ffffff',

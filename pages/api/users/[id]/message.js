@@ -21,6 +21,16 @@ export default async function MessageImage(req) {
     }, { status: 400 })
 
     const user = await dpRes.json()
+    //nickname check. i also comment my code yes thats something i do
+    if (data.name != undefined){
+      user.username = data.name
+    }
+    //custom time chec k idk man im drunk
+    if (data.time == undefined){
+      let temporaryVarName = new Date()
+      data.time = `${temporaryVarName.getUTCHours()}:${temporaryVarName.getUTCMinutes()}`
+    }
+
 
     return new ImageResponse(
       <Message user={user} data={data} />,
