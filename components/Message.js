@@ -1,23 +1,22 @@
-export default function Message({ user, data }) {
+export default function Message({ user, query }) {
   return <div style={styles.messageWrap}>
     <div style={styles.avatarWrap}>
       <img src={user.avatar} style={styles.avatar} />
     </div>
     <div style={styles.message}>
       <div style={styles.header}>
-        <span style={styles.username}>{user.username}</span> <span style={styles.time}>Today at {data.time}</span>
+        <span style={{
+          ...styles.username,
+          color: query.color && `#${query.color}`, // I wanna test if this breaks
+        }}>{query.name || user.username}</span>
+        <span style={styles.time}>{query.time}</span>
       </div>
-      <div style={styles.content}>{data.content || ""}</div>
+      <div style={styles.content}>{query.content || ""}</div>
     </div>
   </div>
 }
 
 const styles = {
-  time: {
-    marginLeft: '7%',
-    fontSize: '12px',
-    color: '#a3a6aa'
-  },
   messageWrap: {
     display: 'flex',
     height: '100%',
@@ -29,11 +28,11 @@ const styles = {
   },
   avatarWrap: {
     display: 'flex',
-    width: '64px',
+    width: '56px',
   },
   avatar: {
-    width: '48px',
-    height: '48px',
+    width: '40px',
+    height: '40px',
     borderRadius: '50%',
   },
   message: {
@@ -42,7 +41,8 @@ const styles = {
   },
   header: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    lineHeight: '16px',
   },
   username: {
     color: '#ffffff',
@@ -50,4 +50,9 @@ const styles = {
     fontSize: '16px',
   },
   content: {},
+  time: {
+    marginLeft: '8px',
+    fontSize: '12px',
+    color: '#a3a6aa'
+  },
 }
