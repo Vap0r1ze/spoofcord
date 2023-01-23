@@ -37,12 +37,12 @@ export default async function MessageImage(req) {
         fonts: [{
           name: 'gg sans',
           weight: 400,
-          data: await fetch('https://cdn.discordapp.com/attachments/637119506690474004/1066313590157615124/gg_sans-400.woff')
+          data: await fetch('https://raw.githubusercontent.com/Vap0r1ze/spoofcord/main/fonts/gg_sans-400.woff')
           .then(res => res.arrayBuffer()),
         }, {
           name: 'gg sans',
           weight: 500,
-          data: await fetch('https://cdn.discordapp.com/attachments/637119506690474004/1066313671598407680/gg_sans-500.woff')
+          data: await fetch('https://raw.githubusercontent.com/Vap0r1ze/spoofcord/main/fonts/gg_sans-500.woff')
           .then(res => res.arrayBuffer()),
         }],
         debug: query.debug != null,
