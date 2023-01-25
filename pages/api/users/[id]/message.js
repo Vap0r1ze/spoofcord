@@ -27,7 +27,7 @@ export default async function MessageImage(req) {
     const tz = query.tz || '+00:00'
 
     // https://date-fns.org/v2.29.3/docs/format
-    query.time ??= formatInTimeZone(timestamp, tz, "'Today at' hh:mm a")
+    query.time ??= formatInTimeZone(timestamp, tz, "'Today at' h:mm a")
 
     return new ImageResponse(
       <Message user={user} query={query} />,
